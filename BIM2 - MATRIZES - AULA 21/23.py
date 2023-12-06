@@ -1,17 +1,28 @@
-lista = ['a','b','c','d']
-print=lista(2)
+import random
 
-notas = [[10,20],[30,40],[50,60],[70,80]]
-print(notas[1])
-print(notas[0])
-print(notas[2][1])
+N = 20
+M = 3
 
-print(notas)
-for i in range(4):
-    print(notas[0])
+# criar uma matriz NxM preenchida com zeros
+matriz = []
+for linha in range(N):
+    matriz.append([0]*M)
 
-print(f"total de linhas: {len(notas)}")
-for i in range (len(notas)):
-    for coluna in range (len(notas[0])):
-        print(notas[0][coluna], end = '/t')
+# adicionar elementos aleatórios à matriz e contar números pares
+numeros_pares = 0
+for linha in range(N):
+    for coluna in range(M):
+        elemento = random.randint(0, 100)  # gera números aleatórios de 0 a 100
+        matriz[linha][coluna] = elemento
+        if elemento % 2 == 0:
+            numeros_pares += 1
+
+# imprimir a matriz
+print("Matriz:")
+for linha in range(N):
+    for coluna in range(M):
+        print(matriz[linha][coluna], end='\t')
     print()
+
+# imprimir a quantidade de números pares
+print(f"\nQuantidade de números pares na matriz: {numeros_pares}")
